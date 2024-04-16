@@ -22,3 +22,5 @@ for item in expression:
     #     print(stack[0])
     #     break
 print(stack[0])
+
+# TODO: Аннотация типов
