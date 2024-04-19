@@ -1,0 +1,2 @@
+children = int(input())
+surname
