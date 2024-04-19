@@ -1,5 +1,3 @@
-# TODO: ДЗ
-
 count_mannyu = int(input())
 count_ovsaynyu = int(input())
 
@@ -16,9 +14,13 @@ for i in range(count_mannyu + count_ovsaynyu):
 
 name_m_o = love_m ^ love_o
 
-if len(name_m_o) == 0:
+if name_m_o:
+    print(*sorted(name_m_o), sep='\n')
+else:
+    print('Таких нет')
+
+# TODO: Интересно
+if not name_m_o:
     print('Таких нет')
 else:
-    name_m_o = list(name_m_o)
-    name_m_o.sort()
-    print(*name_m_o, sep='\n')
+    print(*sorted(name_m_o), sep='\n')
