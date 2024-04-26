@@ -35,8 +35,8 @@ s = """А — A
 """
 
 rows = s.split('\n')
-print(rows)
-
+final_dict = {}
 for item in rows:
     ru, en = item.split(' — ')
     print(ru, en)
+

@@ -1,5 +1,4 @@
 data = {}
-# data = dict()
 
 for _ in range(int(input())):
     # line = input().split()  # Иванов манная овсяная
@@ -7,6 +6,7 @@ for _ in range(int(input())):
     # other = line[1:]
     name, *other = input().split()
     data[name] = other
+
 query = input()
 
 result = []

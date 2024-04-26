@@ -13,11 +13,11 @@ morza = {'A': '.-', 'B': '-...', 'C': '-.-.',
     '9': '----.'}
 
 text = input().upper().split()
-final_dict = {}
 for i in text:
     for x in i:
         print(morza[x], end=' ')
     print()
+
 
 
 
