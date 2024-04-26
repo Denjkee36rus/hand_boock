@@ -1,19 +1,18 @@
-
 string = input()
 location = {}
-while string !='':
+
+while string:
     words = string.split()
-    for i in words:
-        if i not in location:
-            location[i] = 1
-        else:
-            location[i] += 1
+
+    for word in words:
+        # if word not in location:
+        #     location[word] = 1
+        # else:
+        #     location[word] += 1
+
+        location[word] = location.get(word, 0) + 1
+
     string = input()
-for result in location.items(): # вот эту строчку не понимаю !!!!
-    print(result[0], result[1]) # вот эту строчку не понимаю !!!!
-# print(*location.items(), sep='\n')
 
-
-
-
-
+for key, value in location.items():
+    print(key, value)
