@@ -1,44 +1,51 @@
-en = {	1:'Janauary',
-		2:'February',
-		3:'March',
-		4:'April',
-		5:'May',
-		6:'June',
-		7:'July',
-		8:'August',
-		9:'September',
-		10:'October',
-		11:'November',
-		12:'December'		}
+en = {
+    1: 'January',
+    2: 'February',
+    3: 'March',
+    4: 'April',
+    5: 'May',
+    6: 'June',
+    7: 'July',
+    8: 'August',
+    9: 'September',
+    10: 'October',
+    11: 'November',
+    12: 'December'
+}
 
-ru = {	1:'Январь',
-		2:'Февраль',
-		3:'Март',
-		4:'Апрель',
-		5:'Май',
-		6:'Июнь',
-		7:'Июль',
-		8:'Август',
-		9:'Сентябрь',
-		10:'Октябрь',
-		11:'Ноябрь',
-		12:'Декабрь'		}
-def month(number: int, language: str ='ru'):
-    """функция month, которая возвращает название
-     заданного месяца с заглавной буквы
-     number: Номер месяца (от 1 до 12).
-        language: Язык названия месяца (по умолчанию "ru").
+ru = {
+    1: 'Январь',
+    2: 'Февраль',
+    3: 'Март',
+    4: 'Апрель',
+    5: 'Май',
+    6: 'Июнь',
+    7: 'Июль',
+    8: 'Август',
+    9: 'Сентябрь',
+    10: 'Октябрь',
+    11: 'Ноябрь',
+    12: 'Декабрь'
+}
 
-    Возвращает:
-        Название месяца с заглавной буквы
-        или "Такого месяца нет", если номер месяца не найден
-     """
 
-    if number in ru.keys() and language == 'ru':
-        return ru[number].title()
-    elif number in en.keys() and language == 'en':
-        return en[number].title()
-    else:
-        return 'Такого месяца нет'
+def month(number: int, language: str = 'ru'):
+    """
+    Функция возвращает название заданного месяца.
+
+    :param number: Номер месяца (от 1 до 12).
+    :param language: Язык названия месяца. По умолчанию "ru".
+    :return: Если номер месяца не найден "Такого месяца нет",
+    иначе название месяца с заглавной буквы.
+    """
+
+    db: dict[int, str] = ru
+
+    if language == 'en':
+        db = en
+
+    return db.get(number, 'Такого месяца нет')
+
+
 print(month(3, 'en'))
-
+print(month(3, 'ru'))
