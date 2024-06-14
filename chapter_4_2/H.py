@@ -1,7 +1,12 @@
-# string = 'Яндекс использует Python во многих проектах'
-# result = sorted(string.split(), key=lambda x: len(x) )
-# print(result)
+string = 'Яндекс использует Python во многих проектах'
 
-def snring(args: str):
-    return args.upper()[::-1]
+print(sorted(string.split(), key=lambda x: (len(x), x.lower())))
+
+
+# Пример с CodeChick
+
+def snring(arg: str):
+    return arg.upper()[::-1]
+
+
 print(snring("hello world"))

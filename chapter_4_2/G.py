@@ -1,25 +1,24 @@
-data = []
-even = []
-odd = []
+nums: list[float | int] = []
+
 
 def enter_results(*args):
-    global even, odd
-    for item in args:
-        if item % 2 == 0:
-            even.append(item)
-        else:
-            odd.append(item)
-    return even, odd
+    nums.extend(args)
+
 
 def get_sum():
-    return round(sum(even), 2), round(sum(odd), 2)
+    return round(sum(nums[0::2]), 2), round(sum(nums[1::2]), 2)
 
 
 def get_average():
-    from functools import reduce
-    average_even = reduce(lambda x, y: x + y, even) / len(even)
-    average_odd = reduce(lambda x, y: x + y, odd) / len(odd)
-    return round(average_even, 2), round(average_odd, 2)
+    key_sum, val_sum = get_sum()
+    n = len(nums) // 2
+    return round(key_sum / n, 2), round(val_sum / n, 2)
 
-enter_results(3.5, 2.14, 45.2, 37.99)
-print(get_sum(), get_average())
+
+if __name__ == "__main__":
+    enter_results(3.5, 2.14, 45.2, 37.99)
+    print(get_sum(), get_average())
+    enter_results(5.2, 7.3)
+    print(get_sum(), get_average())
+    enter_results(1.23, 4.56, 3.14, 2.71, 0, 0)
+    print(get_sum(), get_average())
