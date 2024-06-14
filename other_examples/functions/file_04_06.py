@@ -31,8 +31,8 @@
 #     data: list = list(ingredients)
 #
 #     print(type(ingredients), ingredients)
-#
-#
+# #
+# #
 # pizza_margarita('соус', [True, False], 'сыр', 10, 'томаты', 43, 'колбаса', 'шампиньоны', size=27)
 #
 # first, *other = ('a', 'b', 'c', 'd')
@@ -76,26 +76,26 @@
 # simple_foo(3, 3, other=9)
 
 
-def all_types(*args):
-    print(args)
-
-    for item in args:
-        if isinstance(item, (int, float)):
-            print(f'Значение {item} числовое')
-        elif isinstance(item, set):
-            print(f'Значение {item} множество')
-        elif isinstance(item, list):
-            print(f'Значение {item} список')
-        else:
-            print(f'Значение {item} типа {type(item)}')
-
-
-all_types(
-    10,
-    1.6489,
-    'abc',
-    [8, 5, 1, -3],
-    ('a', 'b', 'c'),
-    {1, 2, 3},
-    {'login': 'admin', 'password': '1234'},
-)
+# def all_types(*args):
+#     print(args)
+#
+#     for item in args:
+#         if isinstance(item, (int, float)):
+#             print(f'Значение {item} числовое')
+#         elif isinstance(item, set):
+#             print(f'Значение {item} множество')
+#         elif isinstance(item, list):
+#             print(f'Значение {item} список')
+#         else:
+#             print(f'Значение {item} типа {type(item)}')
+#
+#
+# all_types(
+#     10,
+#     1.6489,
+#     'abc',
+#     [8, 5, 1, -3],
+#     ('a', 'b', 'c'),
+#     {1, 2, 3},
+#     {'login': 'admin', 'password': '1234'},
+# )
