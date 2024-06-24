@@ -83,15 +83,24 @@
 
 def answer(func):
     def inner(*args, **kwargs):
-        result = func(*args, **kwargs)
-        print(f"Результат функции: {result}")
-        return result
-
+        func(*args, **kwargs)
+        return f"Результат функции: {10}"
     return inner
+
 
 @answer
 def a_plus_b(a, b):
     return a + b
 
-print(a_plus_b("ddd", "aaa"))
 
+print(a_plus_b(3, 5))
+print(a_plus_b(7, 9))
+
+
+@answer
+def get_letters(text: str) -> str:
+    return ''.join(sorted(set(filter(str.isalpha, text.lower()))))
+
+
+print(get_letters('Hello, world!'))
+print(get_letters('Декораторы это круто =)'))
