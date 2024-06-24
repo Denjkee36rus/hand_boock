@@ -3,8 +3,8 @@
 
 # def example_1(*args):
 #     print(args, type(args))
-#
-#
+
+
 # def example_2(name):
 #     print(f"Название товара: {name}", type(name))
 #
@@ -13,7 +13,7 @@
 #     foo("Привет, Мир!")
 #     # print("Привет, Мир!")
 #
-#
+# #
 # def custom_print(*args):
 #     print(args)
 #
@@ -42,35 +42,35 @@
 # ----------------------------
 
 # Декораторы
-def get_info(func):
-    def inner(*args, **kwargs):
-        print(f"Вызываем {func.__name__}")
-        print(func(*args, **kwargs))
-        print(f"Функция {func.__name__} заканчивает работу")
-
-    return inner
-
-
-# @example_1
-# @example_2
-# @example_3
-@get_info
-def generate_range(num):
-    result = [i for i in range(num)]
-    return result
-
-
-@get_info
-def custom_map(func, data):
-    result = []
-    for item in data:
-        item = func(item)
-        result.append(item)
-    return result
-
-
-generate_range(10)
-custom_map(int, ["1", "2", "3"])
+# def get_info(func):
+#     def inner(*args, **kwargs):
+#         print(f"Вызываем {func.__name__}")
+#         print(func(*args, **kwargs))
+#         print(f"Функция {func.__name__} заканчивает работу")
+#
+#     return inner
+#
+#
+# # @example_1
+# # @example_2
+# # @example_3
+# @get_info
+# def generate_range(num):
+#     result = [i for i in range(num)]
+#     return result
+#
+#
+# @get_info
+# def custom_map(func, data):
+#     result = []
+#     for item in data:
+#         item = func(item)
+#         result.append(item)
+#     return result
+#
+#
+# generate_range(10)
+# custom_map(int, ["1", "2", "3"])
 
 # https://ru.hexlet.io/courses/python-functions/lessons/decorators/theory_unit
 # https://habr.com/ru/companies/otus/articles/727590/
@@ -79,3 +79,19 @@ custom_map(int, ["1", "2", "3"])
 # ----------------------------
 # ----------------------------
 # ----------------------------
+
+
+def answer(func):
+    def inner(*args, **kwargs):
+        result = func(*args, **kwargs)
+        print(f"Результат функции: {result}")
+        return result
+
+    return inner
+
+@answer
+def a_plus_b(a, b):
+    return a + b
+
+print(a_plus_b("ddd", "aaa"))
+
