@@ -22,10 +22,22 @@ print("Количество букв в алфавите:", alphabet.letters_num
 
 
 class EngAlphabet(Alphabet):
+    __letters_num = 26  # Приватное статическое свойство, хранящее количество букв в алфавите
     def __init__(self):
         super().__init__("En", string.ascii_letters)
         self.lang = "En"
         self.letters = string.ascii_letters
+    def is_en_letter(self, letter):
+        if letter in string.ascii_uppercase:
+            print("Символ является заглавной буквой английского  алфавита")
+        else:
+            print("Символ не является заглавной буквой английского  алфавита")
+
+    def letters_num(self):
+        return self.__letters_num
 
 
 
+test_1 = EngAlphabet()
+test_1.is_en_letter("В")
+print()
