@@ -3,18 +3,48 @@ import sys
 
 class StreamData:
     def create(self, fields, lst_values):
-        pass
+        length: int = len(fields)
+        if length != len(lst_values):
+            return False
+
+        for i in range(length):
+            self.__dict__[fields[i]] = lst_values[i]
+
+        # self.__dict__["id"] = "10"
+        # self.id = "10"
+        # self.title = "Питон"
+        # self.pages = "512"
+
+        return True
+
+    def __str__(self):
+        if not self.__dict__:
+            return 'None'
+
+        return '; '.join(self.__dict__)
 
 
 class StreamReader:
-    FIELDS = ('id', 'title', 'pages')
+    FIELDS: tuple[str, ...] = ('id', 'title', 'pages')
 
-    def raadlines(self):
-        lst_in = list(map(str.strip, sys.stdin.readlines()))  # считывание списка строк из входного потока
+    def readlines(self) -> tuple[StreamData, bool]:
+        lst_in: list[str] = list(
+            map(str.strip, sys.stdin.readlines())
+        )
         sd = StreamData()
-        res = sd.create(self.FIELDS, lst_in)
+        res = sd.create(fields=self.FIELDS, lst_values=lst_in)
         return sd, res
 
 
-sr = StreamReader()
-data, result = sr.readlines
+if __name__ == '__main__':
+    sr = StreamReader()
+    obj, result = sr.readlines()
+
+    print(obj)
+    print(result)
+
+"""
+10
+"Питон - основы мастерства"
+512
+"""
