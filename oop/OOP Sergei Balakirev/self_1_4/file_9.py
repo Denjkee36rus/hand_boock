@@ -8,7 +8,9 @@ class DataBase:
     FIELDS = ('id', 'name', 'old', 'salary')
 
     def insert(self, data):
-        self.lst_data.insert(data)
+        self.lst_data.append(dict(zip(self.FIELDS, data)))
 
-    def select(self, a, b):
-        pass
+
+a = DataBase()
+a.insert(lst_n)
+print(a.lst_data)
