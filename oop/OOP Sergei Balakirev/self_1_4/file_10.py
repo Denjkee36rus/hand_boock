@@ -15,7 +15,7 @@ class Translator:
 
     def traslate(self, eng):
         print(*self.new_dict.get(eng,[]))
-        #???????
+        #??
 
 
 
