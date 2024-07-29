@@ -1,14 +1,14 @@
 class Translator:
+    new_dict = {}
 
     def add(self, eng, rus):
-        self.new_dict = {}
         if eng not in self.new_dict:
             self.new_dict.setdefault(eng, rus)
         elif self.new_dict[eng, rus] in self.new_dict:
             pass
         else:
             self.new_dict.setdefault(eng, []).append(rus)
-        return self.new_dict
+        print(self.new_dict)
 
     def remove(self, eng):
         return self.new_dict.pop(eng)
