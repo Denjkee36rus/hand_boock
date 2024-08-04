@@ -1,32 +1,48 @@
 import random
 
 
-class Line:
-    def __init__(self, a, b, c, d):
-        self.sp = (a, b)
-        self.ep = (c, d)
+class Shape:
+    def __init__(self,
+                 a: int,
+                 b: int,
+                 c: int,
+                 d: int):
+        self.sp: tuple[int, int] = (a, b)
+        self.ep: tuple[int, int] = (c, d)
 
-class Rect:
-    def __init__(self, a, b, c, d):
-        self.sp = (a, b)
-        self.ep = (c, d)
+    def __str__(self) -> str:
+        return (f'{self.__class__.__name__}'
+                f'(sp={self.sp}, ep={self.ep})')
 
-class Ellipse:
-    def __init__(self, a, b, c, d):
-        self.sp = (a, b)
-        self.ep = (c, d)
 
-elements = []
+class Line(Shape):
+    pass
 
-for i in range(218):
-    a = random.randint(1, 100)
-    b = random.randint(1, 100)
-    c = random.randint(1, 100)
-    d = random.randint(1, 100)
 
-    random_class = random.choices([Ellipse, Rect, Line])[0]
-    elements.append(random_class(a, b, c, d))
-print(elements)
+class Rect(Shape):
+    pass
 
-# s('[data-qa=applicant-card]').all('[data-qa=applicant_vacancy]')[0].element('[data-qa=log_items] [data-qa=attachmentButtons]').element('.vue-icon-survey'): click
 
+class Ellipse(Shape):
+    pass
+
+
+if __name__ == '__main__':
+    # кол-во аргументов конструктора класса
+    ARGS_COUNT: int = 4
+    elements = []
+
+    for i in range(217):
+        model = random.choice([Ellipse, Rect, Line])
+
+        values = random.choices(range(1, 100), k=ARGS_COUNT)
+        elements.append(model(*values))
+        # elements.append(model(
+        #     *random.choices(range(1, 100), k=ARGS_COUNT)
+        # ))
+
+    print(*elements)
+# s('[data-qa=applicant-card]'
+#   ).all('[data-qa=applicant_vacancy]'
+#         )[0].element('[data-qa=log_items] [data-qa=attachmentButtons]'
+#                      ).element('.vue-icon-survey'): click

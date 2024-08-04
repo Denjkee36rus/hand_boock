@@ -1,27 +1,24 @@
 class Point:
-    def __init__(self, x, y, color='black'):
+    def __init__(self, x: int, y: int, color: str = 'black'):
         self.x = x
         self.y = y
         self.color = color
 
-
-# points = [Point(1, 1)for i in range(1, 100 + 1)]
-points = []
-for i in range(1, 1001):
-    x = 2 * i - 1
-    y = 2 * i - 1
-    if i == 2:
-        color = 'yellow'
-    else:
-        color = 'black'
-    point = Point(x, y, color)
-    points.append(point)
+    def __str__(self) -> str:
+        return f'Point(x={self.x}, y={self.y}, color="{self.color}")'
 
 
-print(points)
+if __name__ == '__main__':
+    # points = [Point(i, i)for i in range(1, 1001, 2)]
+    points: list[Point] = []
+    for i in range(1, 1001, 2):
+        if i == 3:
+            point = Point(x=i, y=i, color='yellow')
+        else:
+            point = Point(x=i, y=i)
 
+        # point = Point(x=i, y=i, color='yellow' if i == 3 else 'black')
+        points.append(point)
 
-
-
-
-
+    # points[1].color = 'yellow'
+    print(*points, sep='\n')
