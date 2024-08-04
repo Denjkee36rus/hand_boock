@@ -17,11 +17,11 @@ class DataBase:
             self.lst_data.append(dict(zip(self.FIELDS, item)))
 
     # TODO: 1. Этот метод неверно реализован.
-    def select(self, a, b):
+    def select(self, a: int, b: int) -> list[dict]:
         result = []
         for row in self.lst_data[a:b + 1]:
             result.append(' '.join(row.values()))
-        print(*result, sep='\n')
+        return result
 
 
 # if __name__ == '__main__':
@@ -32,7 +32,7 @@ class DataBase:
 
 a = DataBase()
 a.insert(lst_n)
-a.select(0, 7)  # TODO: 2. Как исправите метод, здесь нужно добавить print
+print(a.select(0, 7))# TODO: 2. Как исправите метод, здесь нужно добавить print
 
 """
 1 Sergey 35 120000
