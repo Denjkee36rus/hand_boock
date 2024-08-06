@@ -15,17 +15,16 @@ class MotherBoard: # MotherBoard - класс для описания матер
         self.name = name
         self.cpu = cpu
         self.total_mem_slots = 4
-        self.mem_slots = mems
-        if len(self.mem_slots) > self.total_mem_slots:
-            raise ValueError("Слишком много модулей памяти указано"
-                             " для материнской платы")
+        self.mem_slots = mems[:self.total_mem_slots]
+
     def get_config(self):
         result = []
         result.append(f'Материнская плата: {self.name}')
         result.append(f'Центральный процессор: {self.cpu.name} {self.cpu.fr}')
-        print(result)
+        result.append(f'Слотов памяти: {self.total_mem_slots}')
+        result.append(f'Память: {}')
 
-mb = MotherBoard('Intel', 26, 100, 100, 25)
-mb.get_config()
+
+
 
 
