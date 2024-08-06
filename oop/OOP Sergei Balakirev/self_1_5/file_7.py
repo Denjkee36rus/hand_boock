@@ -11,12 +11,11 @@ class Memory: # Memory. - класс для описания памяти;
 
 
 class MotherBoard: # MotherBoard - класс для описания материнских плат.
-    total_mem_slots = 4
-    def __init__(self, name, cpu, *memory_modules):
+    def __init__(self, name, cpu, *mems):
         self.name = name
         self.cpu = cpu
-        self.memory_modules = memory_modules
-        self.mem_slots = list(memory_modules)
+        self.total_mem_slots = 4
+        self.mem_slots = mems
         if len(self.mem_slots) > self.total_mem_slots:
             raise ValueError("Слишком много модулей памяти указано"
                              " для материнской платы")
