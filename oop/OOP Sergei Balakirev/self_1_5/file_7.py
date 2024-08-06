@@ -23,7 +23,7 @@ class MotherBoard: # MotherBoard - класс для описания матер
     def get_config(self):
         result = []
         result.append(f'Материнская плата: {self.name}')
-        result.append(f'Центральный процессор: {self.cpu.fr}')
+        result.append(f'Центральный процессор: {self.cpu.name} {self.cpu.fr}')
         print(result)
 
 mb = MotherBoard('Intel', 26, 100, 100, 25)
