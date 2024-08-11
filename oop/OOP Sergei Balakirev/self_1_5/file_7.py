@@ -22,7 +22,8 @@ class MotherBoard: # MotherBoard - класс для описания матер
         result.append(f'Материнская плата: {self.name}')
         result.append(f'Центральный процессор: {self.cpu.name} {self.cpu.fr}')
         result.append(f'Слотов памяти: {self.total_mem_slots}')
-        result.append(f'Память: {}')
+        result.append(f"Память:" + '; '.join(lambda x)
+
 
 
 
