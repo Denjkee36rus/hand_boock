@@ -1,4 +1,4 @@
-TYPE_OS = 2 # 1 - Windows; 2 - Linux
+TYPE_OS: int = 2
 
 
 class DialogWindows:
@@ -10,28 +10,28 @@ class DialogLinux:
 
 
 class Dialog:
+    __classes: dict = {
+        1: DialogWindows,
+        2: DialogLinux
+    }
+
     def __new__(cls, *args, **kwargs):
-        obg = None
-        if TYPE_OS == 1:
-            obg = super(Dialog, cls).__new__(DialogWindows)
-        else:
-            obg = super(Dialog, cls).__new__(DialogLinux)
-        return obg
+        if TYPE_OS not in cls.__classes:
+            raise ValueError(f"Некорректные данные для класса {TYPE_OS}")
 
-    def __init__(self, name):
-        self.name = name
+        obj = super().__new__(cls.__classes.get(TYPE_OS, Dialog))
+        first, *_ = args
+        obj.name = first
+        return obj
 
 
-dlg = Dialog("name")
+dlg = Dialog("One")
+TYPE_OS = 1
+dlg2 = Dialog("Two")
+dlg3 = Dialog("Three")
+# TYPE_OS = 3
+# dlg4 = Dialog("Four")
 print(dlg)
-
-
-
-
-
-
-
-
-
-
-
+print(dlg2.name)
+print(dlg3.name)
+# print(dlg4.name)
