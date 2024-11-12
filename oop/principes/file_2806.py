@@ -3,6 +3,17 @@ class Car:
     # атрибут, свойство, поле | класса
     WHEELS = 4
 
+    # Переопределение метода
+    def __new__(cls, *args, **kwargs):
+        print("args", args)
+        print("kwargs", kwargs)
+
+        new_obj = super().__new__(cls)
+
+        print(f"[__new__] ID объекта: {id(new_obj)}")
+
+        return new_obj
+
     # Конструктор класс
     def __init__(self, color, car_body, brand, year):
         # атрибут, свойство, поле | объекта, экземпляра
@@ -11,6 +22,7 @@ class Car:
         self.brand = brand
         self.year = year
 
+        print(f"[__init__] ID объекта: {id(self)}")
 
     def info(self):
         print(
@@ -21,8 +33,13 @@ class Car:
         )
 
 
-# # объект, экземпляр
-bmw = Car('Зеленый', 'Седан', 'BMW', 2024)
+# объект, экземпляр
+bmw = Car(
+    car_body='Седан',
+    color='Зеленый',
+    brand='BMW',
+    year=2024
+)
 benz = Car('Черный', 'Хетчбэк', 'Benz', 2024)
 
 # BMW
@@ -36,8 +53,14 @@ print(bmw.WHEELS)
 # bmw.brand = 'Volga'
 # print(bmw.brand)
 
+bmw.feature = "Haha"
+bmw.color = "asdkgjsaldgjlksfdjglsfdg"
 
 print(bmw.__dict__)
+print(benz.__dict__)
 
-bmw.info()
-benz.info()
+# bmw.info()
+# benz.info()
+
+#  args - неограниченное кол-во позиционных пар-ов
+#  kwargs - неограниченное кол-во наименованных пар-ов

@@ -20,6 +20,7 @@ admin_hosts()
 admin_hosts('Alex')
 admin_hosts('Sara')
 
+
 # int a; null
 #
 # []
@@ -38,5 +39,3 @@ def two_sum(a: int | float, b: int) -> int | float:
 print(two_sum(10, 15))
 
 my_var: int | float = two_sum(5, 19)
-
-
