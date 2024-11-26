@@ -10,10 +10,6 @@ class StreamData:
         for i in range(length):
             self.__dict__[fields[i]] = lst_values[i]
 
-        # self.__dict__["id"] = "10"
-        # self.id = "10"
-        # self.title = "Питон"
-        # self.pages = "512"
 
         return True
 
